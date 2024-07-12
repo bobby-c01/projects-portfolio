@@ -71,7 +71,7 @@ def create_structure(space):
 
 def create_projectile(space, position, velocity):
     mass = 10
-    radius = 10
+    radius = 20
     inertia = pymunk.moment_for_circle(mass, 0, radius, (0, 0))
     body = pymunk.Body(mass, inertia)
     body.position = position
@@ -87,7 +87,7 @@ def angle_speed_to_velocity(angle, speed):
     radians = math.radians(angle)
     vx = speed * math.cos(radians)
     vy = speed * math.sin(radians)
-    return vx, -vy  # Negate vy to account for the inverted y-axis
+    return vx, -vy
 
 
 def display_text(display, text, position):
@@ -111,9 +111,8 @@ def run(window, width, height):
 
     draw_options = pymunk.pygame_util.DrawOptions(window)
 
-    projectile_body = None
-    launch_speed = 300  # Initial speed
-    launch_angle = 45  # Initial angle in degrees
+    launch_speed = 350
+    launch_angle = 50
 
     while run:
         for event in pygame.event.get():
@@ -141,6 +140,8 @@ def run(window, width, height):
         space.debug_draw(draw_options)
         display_text(window, f"Angle: {launch_angle}°", (10, 10))
         display_text(window, f"Speed: {launch_speed} m/s", (10, 40))
+        display_text(window, f"Up/Down Arrows = adjust angle", (200, 200))
+        display_text(window, f"Left/Right Arrows = adjust speed", (200, 250))
         space.step(dt)
         pygame.display.flip()
         clock.tick(fps)
