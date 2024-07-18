@@ -3,9 +3,9 @@ Hello! My name is Bobby Cheema and I am a high school student with a strong pass
 
 ## What You'll Find Here
 In this repository, you’ll find a variety of projects that demonstrate my interests in:
-- Electrical Engineering: Explore projects focused on electrical engineering principles. These include designs and implementations that highlight my ability to create innovative solutions and apply engineering concepts to real-world problems.
-- Finance: Discover applications and tools developed to analyze and manage financial data. These projects illustrate my passion for finance and financial technology, and my ability to create practical solutions for financial analysis.
-- Computer Science and Technology: Dive into a range of coding projects written in Python. These projects highlight my programming skills and commitment to development, showcasing my ability to tackle diverse problems and create functional solutions.
+- Solve Real-World Problems: From creating weather dashboards to building personal finance trackers, my work addresses practical needs and challenges.
+- Utilize Modern Technologies: I use a variety of tools and libraries to bring my ideas to life, reflecting my adaptability and eagerness to learn.
+- Showcase Creativity and Technical Skills: Each project is an opportunity for me to explore new concepts and apply my knowledge in meaningful ways.
 
 ## My Goals
 I aspire to pursue a degree in Electrical Engineering and continue exploring the subsections of this field. I am particularly interested in financial technology and computer science, reas where I see exciting opportunities for innovation and impact. I aim to develop a comprehensive skill set that will allow me to address complex challenges and drive advancements in both engineering and technology in the real-world.
@@ -15,7 +15,7 @@ I aspire to pursue a degree in Electrical Engineering and continue exploring the
 
 ### Project 1: Kerman Weather Trends
 
-**Description:** A web application that displays weather trends for Kerman, CA.
+**Description:** A web application that displays daily weather trends for Kerman, CA in real-time.
 
 **Technologies Used:** Python, Plot.ly, Tomorrow.io WeatherAPI
 
@@ -25,35 +25,39 @@ I aspire to pursue a degree in Electrical Engineering and continue exploring the
 - Interactive charts
 
 **Limitations:** Free version does not enable past historical weather data or data beyond 5 days
- 
-**Installation Instructions:**
-1. Clone the repository: `git clone https://github.com/yourusername/weather-dashboard.git`
-2. Navigate to the project directory: `cd weather-dashboard`
-3. Open `index.html` in your web browser.
 
 **Screenshots:**
 ![Weather Dashboard](screenshots/weather-dashboard.png)
 
 ---
 
-### Project 2: Ohm's Law Calculator
+### Project 2: Finance Tracker
 
-**Description:** A desktop game which involves you controlling a character trying to save the world.
+**Description:** A desktop application to track personal finances and budgeting
 
-**Technologies Used:** Python, Pygame
+**Technologies Used:** Python, Tkinker
 
 **Features:**
 - Expense tracking
 - Budget planning
 - Expense reports
 
-**Installation Instructions:**
-1. Clone the repository: `git clone https://github.com/yourusername/finance-tracker.git`
-2. Navigate to the project directory: `cd finance-tracker`
-3. Run the application: `python main.py`
-
 **Screenshots:**
 ![Finance Tracker](screenshots/finance-tracker.png)
+
+### Project 3: RC Circuit Simulator
+
+**Description:** A Python-based simulation tool that models the charging and discharging of a capacitor in an RC (Resistor-Capacitor) circuit. This project visualizes how the voltage across the capacitor changes over time, helping users understand the dynamic behavior of RC circuits.
+
+**Technologies Used:** Python, NumPy, Matplotlib
+
+**Features:**
+- Simulates the voltage across a capacitor during charging and discharging phases.
+- Allows users to input different values for resistance, capacitance, and initial voltage.
+- Plots voltage vs. time to visually demonstrate circuit behavior.
+
+**Screenshots:**
+![RC Circuit](screenshots/rc-circuit.png)
 
 
 Thank you for visiting my repository and considering my application!
