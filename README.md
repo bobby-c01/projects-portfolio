@@ -8,6 +8,7 @@ Welcome to my repository of coding projects which I completed throughout high sc
 ### Project 1: Kerman Weather Trends
 
 **Description:** A web application that displays weather trends for Kerman, CA.
+
 **Technologies Used:** Python, Plot.ly, Tomorrow.io WeatherAPI
 **Features:**
 - Real-time weather updates
@@ -28,6 +29,7 @@ Welcome to my repository of coding projects which I completed throughout high sc
 ### Project 2: Indie Game
 
 **Description:** A desktop game which involves you controlling a character trying to save the world.
+
 **Technologies Used:** Python, Pygame
 **Features:**
 - Expense tracking
