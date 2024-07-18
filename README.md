@@ -1,6 +1,6 @@
-# High School Coding Projects
+# High School Projects
 
-Welcome to my repository of coding projects completed during high school. This repository includes various projects showcasing my skills in programming, data analysis, and game development.
+Welcome to my repository of coding projects which I completed throughout high school. This repository includes various projects showcasing my skills in programming, data analysis, and game development.
 
 
 ## Projects Overview
