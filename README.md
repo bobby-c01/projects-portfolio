@@ -45,6 +45,8 @@ I aspire to pursue a degree in Electrical Engineering and continue exploring the
 **Screenshots:**
 ![Finance Tracker](screenshots/finance-tracker.png)
 
+---
+
 ### Project 3: RC Circuit Simulator
 
 **Description:** A Python-based simulation tool that models the charging and discharging of a capacitor in an RC (Resistor-Capacitor) circuit. This project visualizes how the voltage across the capacitor changes over time, helping users understand the dynamic behavior of RC circuits.
@@ -59,6 +61,7 @@ I aspire to pursue a degree in Electrical Engineering and continue exploring the
 **Screenshots:**
 ![RC Circuit](screenshots/rc-circuit.png)
 
+---
 
 Thank you for visiting my repository and considering my application!
 
