@@ -2,7 +2,8 @@ import requests
 import urllib.parse
 import plotly.graph_objects as go
 
-api_key = 'vqgjICgfNAuTgyeIXKKCMJpnwKmerDAv'
+
+api_key = ${{ secrets.API_KEY }}
 location = 'kerman'
 units = 'imperial'
 timesteps = ['1d']
