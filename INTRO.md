@@ -8,42 +8,40 @@ In this repository, you’ll find a variety of projects that demonstrate my inte
 - Showcase Creativity and Technical Skills: Each project is an opportunity for me to explore new concepts and apply my knowledge in meaningful ways.
 
 ## My Goals
-I aspire to pursue a degree in Electrical Engineering and continue exploring the subsections of this field. I am particularly interested in financial technology and computer science, reas where I see exciting opportunities for innovation and impact. I aim to develop a comprehensive skill set that will allow me to address complex challenges and drive advancements in both engineering and technology in the real-world.
+I aspire to pursue a degree in Electrical Engineering and continue exploring the subsections of this field. I am particularly interested in finance, technology and computer science, where I see exciting opportunities for innovation and impact. I aim to develop a comprehensive skill set that will allow me to address complex challenges and drive advancements in both engineering and technology in the real-world.
 
 
 ## Projects Overview
 
 ### Project 1: Kerman Weather Trends
 
-**Description:** A web application that displays daily weather trends for Kerman, CA in real-time.
+**Description:** A web application that displays daily weather trends and a 15 minute graph for Kerman, CA 
 
-**Technologies Used:** Python, Plot.ly, Tomorrow.io WeatherAPI
+**Technologies Used:** Python, Matplotlib, Open-Meteo Weather API
 
 **Features:**
 - Real-time weather updates
-- 5-day forecast display
-- Interactive charts
-
-**Limitations:** Free version does not enable past historical weather data or data beyond 5 days
+- Accurate historical weather data
+- Detailed 15-minute and daily temperature data
 
 **Screenshots:**
-![Weather Dashboard](screenshots/weather-dashboard.png)
+![Weather Dashboard](screenshots/weather-data.png)
 
 ---
 
-### Project 2: Finance Tracker
+### Project 2: Projectile Motion Simulator
 
-**Description:** A desktop application to track personal finances and budgeting
+**Description:** A desktop application that simulates the trajectory of projectiles, allowing users to visualize and analyze motion under various conditions.
 
-**Technologies Used:** Python, Tkinker
+**Technologies Used:** Python, Pygame
 
 **Features:**
-- Expense tracking
-- Budget planning
-- Expense reports
+- Real-time trajectory simulation
+- Adjustable launch angles and velocities
+- Realistic physics for accurate simulation 
 
 **Screenshots:**
-![Finance Tracker](screenshots/finance-tracker.png)
+![Projectile Motion](screenshots/projectile-motion.png)
 
 ---
 
