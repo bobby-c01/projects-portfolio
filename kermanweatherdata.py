@@ -1,86 +1,79 @@
-import requests
-import urllib.parse
-import plotly.graph_objects as go
+import matplotlib.pyplot as plt
+import openmeteo_requests
+import requests_cache
+import pandas as pd
+from retry_requests import retry
 
+cache_session = requests_cache.CachedSession('.cache', expire_after=3600)
+retry_session = retry(cache_session, retries=5, backoff_factor=0.2)
+openmeteo = openmeteo_requests.Client(session=retry_session)
 
-api_key = ${{ secrets.API_KEY }}
-location = 'kerman'
-units = 'imperial'
-timesteps = ['1d']
-
-weather_forecast_data = {
-    'apikey': api_key,
-    'location': location,
-    'units': units,
-    'timesteps': ','.join(timesteps)
+url = "https://historical-forecast-api.open-meteo.com/v1/forecast"
+params = {
+    "latitude": 36.7236,
+    "longitude": -120.0599,
+    "start_date": "2023-01-01",
+    "end_date": "2023-12-31",
+    "minutely_15": "temperature_2m",
+    "daily": ["temperature_2m_max", "temperature_2m_min"],
+    "temperature_unit": "fahrenheit",
+    "wind_speed_unit": "ms",
+    "precipitation_unit": "inch",
+    "timezone": "America/Los_Angeles"
 }
-query_string = urllib.parse.urlencode(weather_forecast_data)
+responses = openmeteo.weather_api(url, params=params)
 
-get_weather_forecast_url = "https://api.tomorrow.io/v4/weather/forecast"
-url = f"{get_weather_forecast_url}?{query_string}"
-headers = {'accept': 'application/json'}
+response = responses[0]
 
+minutely_15 = response.Minutely15()
+minutely_15_temperature_2m = minutely_15.Variables(0).ValuesAsNumpy()
 
-def plot_temperature_forecast_trends():
-    try:
-        response = requests.get(url, headers=headers)
-        response.raise_for_status()
-        weather_forecast_res = response.json()
+minutely_15_data = {"date": pd.date_range(
+    start=pd.to_datetime(minutely_15.Time(), unit="s", utc=True),
+    end=pd.to_datetime(minutely_15.TimeEnd(), unit="s", utc=True),
+    freq=pd.Timedelta(seconds=minutely_15.Interval()),
+    inclusive="left"
+), "temperature_2m": minutely_15_temperature_2m}
 
-        daily_weather_forecast_data = weather_forecast_res.get('timelines', {}).get('daily', [])
-        temperature_plots = convert_data_into_temp_plots(daily_weather_forecast_data)
+minutely_15_dataframe = pd.DataFrame(data=minutely_15_data)
 
-        layout = {
-            'title': 'Kerman Temperature Trends Over the Next 5 Days',
-            'xaxis': {'title': 'Date', 'type': 'date'},
-            'yaxis': {'title': f'Temperature ({units})', 'type': 'linear'},
-            'showlegend': True,
-            'hovermode': 'x unified'
-        }
-        fig = go.Figure(data=temperature_plots, layout=layout)
-        fig.show()
+daily = response.Daily()
+daily_temperature_2m_max = daily.Variables(0).ValuesAsNumpy()
+daily_temperature_2m_min = daily.Variables(1).ValuesAsNumpy()
 
-    except requests.exceptions.HTTPError as err:
-        print(f"HTTP error occurred: {err}")
-    except Exception as err:
-        print(f"An error occurred: {err}")
+daily_data = {"date": pd.date_range(
+    start=pd.to_datetime(daily.Time(), unit="s", utc=True),
+    end=pd.to_datetime(daily.TimeEnd(), unit="s", utc=True),
+    freq=pd.Timedelta(seconds=daily.Interval()),
+    inclusive="left"
+), "temperature_2m_max": daily_temperature_2m_max, "temperature_2m_min": daily_temperature_2m_min}
+
+daily_dataframe = pd.DataFrame(data=daily_data)
 
 
-def convert_data_into_temp_plots(raw_data):
-    max_temperatures = []
-    min_temperatures = []
-    avg_temperatures = []
-    time_stamps = []
+plt.figure(figsize=(14, 7))
 
-    for day in raw_data:
-        time_stamps.append(day.get('time', ''))
-        max_temperatures.append(day.get('values', {}).get('temperatureMax', None))
-        min_temperatures.append(day.get('values', {}).get('temperatureMin', None))
-        avg_temperatures.append(day.get('values', {}).get('temperatureAvg', None))
 
-    return [
-        go.Scatter(
-            x=time_stamps,
-            y=max_temperatures,
-            mode='lines+markers',
-            name='Max Temp',
-            hoverinfo='text+x+y'
-        ),
-        go.Scatter(
-            x=time_stamps,
-            y=min_temperatures,
-            mode='lines+markers',
-            name='Min Temp',
-            hoverinfo='text+x+y'
-        ),
-        go.Scatter(
-            x=time_stamps,
-            y=avg_temperatures,
-            mode='lines+markers',
-            name='Avg Temp',
-            hoverinfo='text+x+y'
-        )
-    ]
+plt.subplot(2, 1, 1)
+plt.plot(minutely_15_dataframe['date'], minutely_15_dataframe['temperature_2m'], label='Minutely Temperature 2m', color='blue')
+plt.xlabel('Date')
+plt.ylabel('Temperature (°F)')
+plt.title('15 Minute Temperature Data')
+plt.legend()
+plt.grid()
+
+
+plt.subplot(2, 1, 2)
+plt.plot(daily_dataframe['date'], daily_dataframe['temperature_2m_max'], label='Daily Max Temperature 2m', color='red')
+plt.plot(daily_dataframe['date'], daily_dataframe['temperature_2m_min'], label='Daily Min Temperature 2m', color='green')
+plt.xlabel('Date')
+plt.ylabel('Temperature (°F)')
+plt.title('Daily Temperature Data')
+plt.legend()
+plt.grid()
+
+plt.tight_layout()
+plt.show()
 
 
 if __name__ == "__main__":
