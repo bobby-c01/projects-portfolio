@@ -55,7 +55,7 @@ plt.figure(figsize=(14, 7))
 
 
 plt.subplot(2, 1, 1)
-plt.plot(minutely_15_dataframe['date'], minutely_15_dataframe['temperature_2m'], label='Minutely Temperature 2m', color='blue')
+plt.plot(minutely_15_dataframe['date'], minutely_15_dataframe['temperature_2m'], label='15 Minute Temperature', color='blue')
 plt.xlabel('Date')
 plt.ylabel('Temperature (°F)')
 plt.title('15 Minute Temperature Data')
@@ -64,8 +64,8 @@ plt.grid()
 
 
 plt.subplot(2, 1, 2)
-plt.plot(daily_dataframe['date'], daily_dataframe['temperature_2m_max'], label='Daily Max Temperature 2m', color='red')
-plt.plot(daily_dataframe['date'], daily_dataframe['temperature_2m_min'], label='Daily Min Temperature 2m', color='green')
+plt.plot(daily_dataframe['date'], daily_dataframe['temperature_2m_max'], label='Daily Max Temperature', color='red')
+plt.plot(daily_dataframe['date'], daily_dataframe['temperature_2m_min'], label='Daily Min Temperature', color='green')
 plt.xlabel('Date')
 plt.ylabel('Temperature (°F)')
 plt.title('Daily Temperature Data')
