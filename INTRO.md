@@ -15,17 +15,17 @@ I aspire to pursue a degree in Electrical Engineering and continue exploring the
 
 ### Project 1: Kerman Weather Trends
 
-**Description:** A web application that displays daily weather trends and a 15 minute graph for Kerman, CA 
+**Description:** A web application that displays monthly weather trends and a 15 minute graph for Kerman, CA 
 
 **Technologies Used:** Python, Matplotlib, Open-Meteo Weather API
 
 **Features:**
 - Real-time weather updates
 - Accurate historical weather data
-- Detailed 15-minute and daily temperature data
+- Detailed 15-minute and monthly temperature data
 
 **Screenshots:**
-![Weather Dashboard](screenshots/weather-data.png)
+![Weather Forecast](screenshots/weather-forecast.png)
 
 ---
 
