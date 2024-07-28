@@ -25,7 +25,7 @@ I aspire to pursue a degree in Electrical Engineering and continue exploring the
 - Detailed 15-minute and monthly temperature data
 
 **Screenshots:**
-![Weather Forecast](screenshots/weather-forecast.png)
+![Weather Forecast](https://github.com/bobby-c01/projects-portfolio/raw/06ea79ab30a9bacf7b987fd6e54cc232c5a3e066/weather-forecast.png)
 
 ---
 
