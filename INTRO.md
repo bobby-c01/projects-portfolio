@@ -41,7 +41,7 @@ I aspire to pursue a degree in Electrical Engineering and continue exploring the
 - Realistic physics for accurate simulation 
 
 **Screenshots:**
-![Projectile Motion](screenshots/projectile-motion.png)
+![Projectile Motion](https://github.com/bobby-c01/projects-portfolio/blob/10819b75d22e071f6126da57aea38522d91b1e96/projectile-motion.png)
 
 ---
 
