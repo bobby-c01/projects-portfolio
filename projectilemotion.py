@@ -2,6 +2,7 @@ import pygame
 import pymunk
 import pymunk.pygame_util
 import math
+import os
 
 pygame.init()
 
@@ -55,9 +56,13 @@ def create_ground(space):
 def create_structure(space):
     BROWN = (139, 69, 19, 100)
     rects = [
-        [(600, HEIGHT - 120), (40, 200), BROWN, 100],
-        [(900, HEIGHT - 120), (40, 200), BROWN, 100],
-        [(750, HEIGHT - 240), (340, 40), BROWN, 150]
+        [(600, HEIGHT - 120), (40, 200), BROWN, 20],
+        [(900, HEIGHT - 120), (40, 200), BROWN, 20],
+        [(750, HEIGHT - 240), (340, 40), BROWN, 20],
+        [(600, HEIGHT - 360), (40, 200), BROWN, 20],
+        [(900, HEIGHT - 360), (40, 200), BROWN, 20],
+        [(750, HEIGHT - 480), (340, 40), BROWN, 20],
+
     ]
     for pos, size, color, mass in rects:
         body = pymunk.Body(mass, pymunk.moment_for_box(mass, size))
@@ -70,7 +75,7 @@ def create_structure(space):
 
 
 def create_projectile(space, position, velocity):
-    mass = 10
+    mass = 20
     radius = 20
     inertia = pymunk.moment_for_circle(mass, 0, radius, (0, 0))
     body = pymunk.Body(mass, inertia)
@@ -94,6 +99,14 @@ def display_text(display, text, position):
     font = pygame.font.Font(None, 36)
     text_surface = font.render(text, True, (0, 0, 0))
     display.blit(text_surface, position)
+
+
+def save_screenshot(surface, filename='~/Desktop/screenshot.png'):
+    try:
+        pygame.image.save(surface, os.path.expanduser(filename))
+        print(f"Screenshot saved as {filename}")
+    except Exception as e:
+        print(f"Failed to save screenshot: {e}")
 
 
 def run(window, width, height):
@@ -120,6 +133,9 @@ def run(window, width, height):
                 run = False
                 break
 
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_s:
+                save_screenshot(window)
+
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_x, mouse_y = pygame.mouse.get_pos()
                 vx, vy = angle_speed_to_velocity(launch_angle, launch_speed)
@@ -132,9 +148,9 @@ def run(window, width, height):
                 elif event.key == pygame.K_DOWN:
                     launch_angle -= 5
                 elif event.key == pygame.K_RIGHT:
-                    launch_speed += 10
+                    launch_speed += 100
                 elif event.key == pygame.K_LEFT:
-                    launch_speed -= 10
+                    launch_speed -= 100
 
         window.fill((255, 255, 255))
         space.debug_draw(draw_options)
