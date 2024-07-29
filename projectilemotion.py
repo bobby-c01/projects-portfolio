@@ -2,7 +2,6 @@ import pygame
 import pymunk
 import pymunk.pygame_util
 import math
-import os
 
 pygame.init()
 
@@ -101,14 +100,6 @@ def display_text(display, text, position):
     display.blit(text_surface, position)
 
 
-def save_screenshot(surface, filename='~/Desktop/screenshot.png'):
-    try:
-        pygame.image.save(surface, os.path.expanduser(filename))
-        print(f"Screenshot saved as {filename}")
-    except Exception as e:
-        print(f"Failed to save screenshot: {e}")
-
-
 def run(window, width, height):
     run = True
     clock = pygame.time.Clock()
@@ -132,10 +123,7 @@ def run(window, width, height):
             if event.type == pygame.QUIT:
                 run = False
                 break
-
-            if event.type == pygame.KEYDOWN and event.key == pygame.K_s:
-                save_screenshot(window)
-
+                
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_x, mouse_y = pygame.mouse.get_pos()
                 vx, vy = angle_speed_to_velocity(launch_angle, launch_speed)
