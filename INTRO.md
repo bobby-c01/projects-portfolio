@@ -59,9 +59,7 @@ I aspire to pursue a degree in Electrical Engineering and continue exploring the
 - Boundaries to keep players confined within the screen
 
 **Screenshots:**
-
-
-![Blocky Shooter](https://github.com/bobby-c01/projects-portfolio/blob/main/blocky-shooter.png))
+![Blocky Shooter](https://github.com/bobby-c01/projects-portfolio/blob/main/blocky-shooter.png)
 
 ---
 
