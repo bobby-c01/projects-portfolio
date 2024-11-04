@@ -45,19 +45,22 @@ I aspire to pursue a degree in Electrical Engineering and continue exploring the
 
 ---
 
-### Project 3: RC Circuit Simulator
+### Project 3: Blocky Shooter
 
-**Description:** A Python-based simulation tool that models the charging and discharging of a capacitor in an RC (Resistor-Capacitor) circuit. This project visualizes how the voltage across the capacitor changes over time, helping users understand the dynamic behavior of RC circuits.
+**Description:**  Blocky Shooter is a 2D local multiplayer shooter game created with Pygame and Pymunk. Players control two blocky characters on a vibrant playing field, shooting projectiles at each other with the goal of depleting their opponent's health to zero. The game combines fun gameplay mechanics with simple controls, making it easy to pick up and enjoy with a friend on the same device.
 
-**Technologies Used:** Python, NumPy, Matplotlib
+**Technologies Used:** Python, Pygame, Pymunk
 
 **Features:**
-- Simulates the voltage across a capacitor during charging and discharging phases.
-- Allows users to input different values for resistance, capacitance, and initial voltage.
-- Plots voltage vs. time to visually demonstrate circuit behavior.
+- Two-player gameplay for local competition
+- Responsive player movement and projectile shooting mechanics
+- Health tracking system for each player
+- Collision detection powered by Pymunk for accurate interactions
+- Boundaries to keep players confined within the screen
 
 **Screenshots:**
-![RC Circuit](screenshots/rc-circuit.png)
+![Blocky Shooter](https://github.com/bobby-c01/projects-portfolio/blob/main/blocky-shooter.png
+))
 
 ---
 
