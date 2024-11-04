@@ -18,7 +18,7 @@ def handle_collision(players):
     def callback(arbiter, space, data):
         shape_a, shape_b = arbiter.shapes
 
-        # Determine which shape is the player and which is the projectile
+       
         if shape_a.collision_type == PLAYER_COLLISION_TYPE:
             player_shape = shape_a
             projectile_shape = shape_b
@@ -26,17 +26,17 @@ def handle_collision(players):
             player_shape = shape_b
             projectile_shape = shape_a
 
-        # Access the player from the players list
+    
         for player in players:
             if player['shape'] == player_shape:
                 player['health'] -= 1
                 print(f"Player hit! Health is now {player['health']}")
 
-                # Check if the player is out of health
+              
                 if player['health'] <= 0:
                     print("Player has been defeated!")
 
-        # Remove the projectile from the space
+ 
         space.remove(projectile_shape, projectile_shape.body)
         return True
 
@@ -202,7 +202,7 @@ def main(display, width, height):
 
         draw(space, display, draw_options, players)
 
-        # Display health after drawing the players
+      
         display_text(display, player1['health'], (40, 25))
         display_text(display, player2['health'], (WIDTH - 80, 25))
 
