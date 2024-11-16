@@ -81,6 +81,28 @@ I aspire to pursue a degree in Electrical Engineering and continue exploring the
 
 ---
 
+### Project 4: Dodge! (game)
+
+**Description:**  Dodge! is a fun 2D game where players control a character that must avoid obstacles while collecting coins for points. The game gets more challenging as obstacles appear from random directions. The goal is to survive as long as possible while dodging obstacles and collecting as many coins as you can!
+
+**Technologies Used:** Python, Pygame
+
+**Features:**
+- Single-player gameplay with intuitive controls for movement
+- Randomly spawning obstacles that increase the challenge
+- Collision detection to track when the player hits obstacles
+- Dynamic difficulty with increasing speed and frequency of obstacles
+
+**Screenshots:**
+
+![Dodge](https://github.com/bobby-c01/projects-portfolio/blob/cf4c2186d01d1e15a4bb76392c8a735c3aa18c39/dodge.png)
+
+
+
+
+
+---
+
 Thank you for visiting my repository and considering my application!
 
 
